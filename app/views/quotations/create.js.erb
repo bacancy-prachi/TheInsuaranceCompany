@@ -1,6 +1,6 @@
 $("#transaction-form").html("<%= escape_javascript(render partial: 'form', locals:  {quotation: @quotation} ) %>");
 <% if @quotation.persisted? %>
-	$('#second-half').html("<h3>INSURANCE PREMIUM</h3><br><h1><%= @quotation_premium %>$</h1>")
+	$('#second-half').html("<br><h3>INSURANCE PREMIUM</h3><br><h1><%= @quotation_premium %>$</h1><br>The calculation of insurance premium is as below.<br><h5>Prime Avant Tax: <%= @quotation.premium_calculation.prime_avant_tax %></h5><br><h5>Emission Fees: <%= @quotation.premium_calculation.emission_fees %></h5><br><h5>Tax 9%: <%= @quotation.premium_calculation.tax %></h5>")
 	$("#second-half").append("<%= escape_javascript(render partial: 'form_second_half', locals:  {quotation: @quotation} ) %>");
 <% else %>
 	$('#second-half').html(" ")

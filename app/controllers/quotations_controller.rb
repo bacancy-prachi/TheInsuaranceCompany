@@ -23,6 +23,7 @@ class QuotationsController < ApplicationController
   def create
     @quotation = Quotation.new(quatation_params)
     if @quotation.save
+      @quotation.build_premium_calculation
       calculate_premium
     end
     respond_to do |format|
@@ -51,14 +52,18 @@ class QuotationsController < ApplicationController
   end
 
   def calculate_premium
-    prime_avant_tax = (((@quotation.municiple_evaluation_of_property-500000)/1000)*1.17)+320
-      emission_fees = 20
-      tax = (prime_avant_tax*9)/100
-      @quotation_premium = (prime_avant_tax) + (emission_fees) + (tax)
-      @quotation&.build_quotation_transaction unless @quotation&.quotation_transaction.present?
-      @quotation&.build_property_legal_description unless @quotation&.property_legal_description.present?
-      @quotation&.build_property_information unless @quotation&.property_information.present?
-      @quotation&.build_note unless @quotation&.note.present?
+    prime_avant_tax = (((@quotation.municiple_evaluation_of_property-(500000))/1000)*(1.17))+320
+    @quotation&.premium_calculation&.prime_avant_tax = prime_avant_tax
+    emission_fees = 20
+    @quotation&.premium_calculation&.emission_fees = emission_fees
+    tax = ((prime_avant_tax)*9)/100
+    @quotation&.premium_calculation&.tax = tax
+    @quotation_premium = prime_avant_tax + emission_fees + tax
+    @quotation.premium_calculation.save
+    @quotation&.build_quotation_transaction unless @quotation&.quotation_transaction.present?
+    @quotation&.build_property_legal_description unless @quotation&.property_legal_description.present?
+    @quotation&.build_property_information unless @quotation&.property_information.present?
+    @quotation&.build_note unless @quotation&.note.present?
   end
 
   def update_second_half
@@ -68,6 +73,12 @@ class QuotationsController < ApplicationController
       else
         format.js { render 'create.js.erb', layout: false }
       end
+    end
+  end
+
+  def thank_you
+    respond_to do |format|
+      format.js { render layout: false }
     end
   end
 
@@ -82,6 +93,8 @@ class QuotationsController < ApplicationController
       params.require(:quotation).permit(:email, :first_name, :last_name, :address, :postal_code, :city, :phone, :province, :municiple_evaluation_of_property, quotation_transaction_attributes: [:language, :home_owner, :second_home_owner, :third_home_owner, :type_of_property, :present_owner, :purchase_date],
         property_legal_description_attributes: [:lot_number, :proprty_address, :postal_code, :city],
         property_information_attributes: [:bound_by_water, :ensure_municipal_water_sewer, :ensure_property, :client_knowledge],
-        note_attributes: [:description, :referral_agent_name, :referral_agent_email] )
+        note_attributes: [:description, :referral_agent_name, :referral_agent_email],
+        premium_calculation_attributes: [:prime_avant_tax, :emission_fees, :tax],
+        request_callback_attributes: [:phone_number, :availability] )
     end
 end

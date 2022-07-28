@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_28_053927) do
+ActiveRecord::Schema.define(version: 2022_07_28_064444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2022_07_28_053927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quotation_id"], name: "index_notes_on_quotation_id"
+  end
+
+  create_table "premium_calculations", force: :cascade do |t|
+    t.string "prime_avant_tax"
+    t.string "emission_fees"
+    t.string "tax"
+    t.bigint "quotation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quotation_id"], name: "index_premium_calculations_on_quotation_id"
   end
 
   create_table "property_informations", force: :cascade do |t|
@@ -87,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_07_28_053927) do
   end
 
   add_foreign_key "notes", "quotations"
+  add_foreign_key "premium_calculations", "quotations"
   add_foreign_key "property_informations", "quotations"
   add_foreign_key "property_legal_descriptions", "quotations"
   add_foreign_key "quotation_transactions", "quotations"

@@ -1,5 +1,5 @@
 <div id="container">
-	<h1>New Quotation</h1>
+	<h1>Quotation Form</h1>
 
 	<div id = "transaction-form">
 
@@ -20,19 +20,39 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div>
-          <label for="formGroupExampleInput">Phone number</label>
-          <%= text_field :description, placeholder= "Phone number:" %>
-        </div>
-        <br>
-        <div>
-          <label for="formGroupExampleInput">Best moment to call you</label>
-          <%= text_field :referral_agent_name, placeholder= "Best moment to call you:" %>
-        </div>
-        <br>
-        <div>
-          <button type="button" class="btn btn-primary">Submit</button>
-        </div>
+        <%= form_with(model: @quotation, url: thank_you_path, method: :get, local: false) do |form| %>
+          <div>
+            <%= form.label :phone_number, style: "display: block" %>
+            <%= form.text_field :phone_number %>
+          </div>
+          <br>
+          <div>
+            <%= form.label :availability, style: "display: block" %>
+            <%= form.text_field :availability %>
+          </div>
+        
+          <br>
+          <div class="actions">
+            <%= form.submit "Submit"%>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="thankyouModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>Thank You!</h1>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
