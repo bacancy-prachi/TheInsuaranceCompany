@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bound_by_water: false
+  ensure_municipal_water_sewer: false
+  ensure_property: false
+  client_knowledge: false
+  quotation: one
+
+two:
+  bound_by_water: false
+  ensure_municipal_water_sewer: false
+  ensure_property: false
+  client_knowledge: false
+  quotation: two

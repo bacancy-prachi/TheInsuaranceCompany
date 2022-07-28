@@ -1,0 +1,22 @@
+<%= form_with(model: quotation, url: update_second_half_path(quotation.id), method: :post, local: false) do |form| %>
+
+  <%= form.fields_for :quotation_transcation do |transcation| %>
+    <%= render 'quotation_transaction_fields', f: transcation %>
+  <% end %>
+
+  <%= form.fields_for :property_legal_description do |property_legal_description| %>
+    <%= render 'property_legal_description_fields', f: property_legal_description %>
+  <% end %>
+
+  <%= form.fields_for :property_information do |property_information| %>
+    <%= render 'property_information_fields', f: property_information %>
+  <% end %>
+
+  <%= form.fields_for :note do |note| %>
+    <%= render 'note_fields', f: note %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

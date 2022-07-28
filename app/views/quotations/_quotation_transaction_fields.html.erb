@@ -1,0 +1,33 @@
+<div>
+  <%= f.label :language, "Language", style: "display: block" %>
+  <%= f.label :language, "French", style: "display: block" %>
+  <%= f.radio_button :language, true %>
+</div>
+<div>
+  <%= f.label :language, "English", style: "display: block" %>
+  <%= f.radio_button :language, false, checked: true %>
+</div>
+<div>
+  <%= f.label :home_owner, style: "display: block" %>
+  <%= f.text_field :home_owner %>
+</div>
+<div>
+  <%= f.label :second_home_owner, style: "display: block" %>
+  <%= f.text_field :second_home_owner %>
+</div>
+<div>
+  <%= f.label :third_home_owner, style: "display: block" %>
+  <%= f.text_field :third_home_owner %>
+</div>
+<div>
+  <%= f.label :type_of_property, style: "display: block" %>
+  <%= f.select :type_of_property, [["Single-family Dwelling", 1], ["Condominium", 0]] %>
+</div>
+<div>
+  <%= f.label :present_owner, "Are you presently the owner of that property ?", style: "display: block" %>
+  <%= f.check_box :present_owner %>
+</div>
+<div>
+  <%= f.label :purchase_date, style: "display: block" %>
+  <%= f.date_field :purchase_date %>
+</div>

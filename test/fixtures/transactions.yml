@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  insuarance_premium: 
+  language: false
+  home_owner: MyString
+  second_home_owner: MyString
+  third_home_owner: MyString
+  type_of_property: MyString
+  present_owner: MyString
+  purchase_date: 
+  municiple_evaluation_of_property: MyString
+  quotation: one
+
+two:
+  insuarance_premium: 
+  language: false
+  home_owner: MyString
+  second_home_owner: MyString
+  third_home_owner: MyString
+  type_of_property: MyString
+  present_owner: MyString
+  purchase_date: 
+  municiple_evaluation_of_property: MyString
+  quotation: two

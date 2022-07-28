@@ -1,0 +1,62 @@
+<%= form_with(model: quotation, local: false) do |form| %>
+  <% if quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+      <% quotation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code %>
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :province %>
+    <%= form.text_field :province %>
+  </div>
+
+  <div class="field">
+    <%= form.label :municiple_evaluation_of_property %>
+    <%= form.text_field :municiple_evaluation_of_property %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

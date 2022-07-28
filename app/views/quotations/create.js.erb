@@ -1,0 +1,7 @@
+$("#transaction-form").html("<%= escape_javascript(render partial: 'form', locals:  {quotation: @quotation} ) %>");
+<% if @quotation.persisted? %>
+	$('#second-half').html("<%= @quotation_premium %>")
+	$("#second-half").append("<%= escape_javascript(render partial: 'form_second_half', locals:  {quotation: @quotation} ) %>");
+<% else %>
+	$('#second-half').html(" ")
+<% end %>

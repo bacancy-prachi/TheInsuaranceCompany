@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  referral_agent_name: MyString
+  referral_agent_email: MyString
+  quotation: one
+
+two:
+  description: MyText
+  referral_agent_name: MyString
+  referral_agent_email: MyString
+  quotation: two

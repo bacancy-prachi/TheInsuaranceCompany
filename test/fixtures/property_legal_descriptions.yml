@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lot_number: 1
+  proprty_address: MyString
+  city: MyString
+  postal_code: MyString
+  quotation: one
+
+two:
+  lot_number: 1
+  proprty_address: MyString
+  city: MyString
+  postal_code: MyString
+  quotation: two

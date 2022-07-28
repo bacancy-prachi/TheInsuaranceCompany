@@ -1,0 +1,41 @@
+
+ <div> 
+  <%= f.label :bound_by_water, "Is the Insured Property bound by water (lac, stream, river, etc.)?*", style: "display: block" %>
+
+  <%= f.label :bound_by_water, "Yes", style: "display: block" %>
+  <%= f.radio_button :bound_by_water, false, checked: true %>
+
+  <%= f.label :bound_by_water, "No", style: "display: block" %>
+  <%= f.radio_button :bound_by_water, true %>
+</div>
+
+<div>  
+  <%= f.label :ensure_municipal_water_sewer, "Is the Insured Property on Municipal Water and Municipal Sewer?*", style: "display: block" %>
+
+  <%= f.label :ensure_municipal_water_sewer, "Yes", style: "display: block" %>
+  <%= f.radio_button :ensure_municipal_water_sewer, false, checked: true %>
+
+  <%= f.label :ensure_municipal_water_sewer, "No", style: "display: block" %>
+  <%= f.radio_button :ensure_municipal_water_sewer, true %> 
+</div> 
+
+<div>   
+  <%= f.label :ensure_property, "Has a title insurance already been issued for the insured property according to the client ?*", style: "display: block" %>
+  
+  <%= f.label :ensure_property, "Yes", style: "display: block" %>
+  <%= f.radio_button :ensure_property, false, checked: true %>
+
+  <%= f.label :ensure_property, "No", style: "display: block" %>
+  <%= f.radio_button :ensure_property, true %> 
+</div> 
+
+<div>   
+  <%= f.label :client_knowledge, "Has a title insurance been denied for the insured property, to the best of the client's knowledge?*", style: "display: block" %>
+  
+  <%= f.label :client_knowledge, "Yes", style: "display: block" %>
+  <%= f.radio_button :client_knowledge, false, checked: true %>
+
+  <%= f.label :client_knowledge, "No", style: "display: block" %>
+  <%= f.radio_button :client_knowledge, true %>
+</div> 
+  

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @quotation.email %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @quotation.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @quotation.last_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @quotation.address %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @quotation.postal_code %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @quotation.city %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @quotation.phone %>
+</p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @quotation.province %>
+</p>
+
+<p>
+  <strong>Municiple evaluation of property:</strong>
+  <%= @quotation.municiple_evaluation_of_property %>
+</p>
+
+<%= link_to 'Edit', edit_quatation_path(@quotation) %> |
+<%= link_to 'Back', quotations_path %>
