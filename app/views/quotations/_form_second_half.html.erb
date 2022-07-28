@@ -15,8 +15,8 @@
   <%= form.fields_for :note do |note| %>
     <%= render 'note_fields', f: note %>
   <% end %>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "REQUEST A CALLBACK"%>
   </div>
 <% end %>

@@ -4,5 +4,6 @@ class Quotation < ApplicationRecord
 	has_one :property_legal_description, dependent: :destroy
 	has_one :note, dependent: :destroy
 	has_one :property_information, dependent: :destroy
+	has_one :request_callback, dependent: :destroy
 	accepts_nested_attributes_for :quotation_transaction, :property_legal_description, :property_information, :note, allow_destroy: true
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_27_163348) do
+ActiveRecord::Schema.define(version: 2022_07_28_053927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,8 +77,18 @@ ActiveRecord::Schema.define(version: 2022_07_27_163348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "request_callbacks", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "availability"
+    t.bigint "quotation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quotation_id"], name: "index_request_callbacks_on_quotation_id"
+  end
+
   add_foreign_key "notes", "quotations"
   add_foreign_key "property_informations", "quotations"
   add_foreign_key "property_legal_descriptions", "quotations"
   add_foreign_key "quotation_transactions", "quotations"
+  add_foreign_key "request_callbacks", "quotations"
 end

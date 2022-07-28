@@ -16,11 +16,23 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel">REQUEST A CALLBACK</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Thank You!
+        <div>
+          <label for="formGroupExampleInput">Phone number</label>
+          <%= text_field :description, placeholder= "Phone number:" %>
+        </div>
+        <br>
+        <div>
+          <label for="formGroupExampleInput">Best moment to call you</label>
+          <%= text_field :referral_agent_name, placeholder= "Best moment to call you:" %>
+        </div>
+        <br>
+        <div>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
       </div>
     </div>
   </div>

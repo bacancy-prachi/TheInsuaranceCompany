@@ -51,7 +51,7 @@ class QuotationsController < ApplicationController
   end
 
   def calculate_premium
-    prime_avant_tax = (((@quotation.municiple_evaluation_of_property-50000)/1000)*1.17)+320
+    prime_avant_tax = (((@quotation.municiple_evaluation_of_property-500000)/1000)*1.17)+320
       emission_fees = 20
       tax = (prime_avant_tax*9)/100
       @quotation_premium = (prime_avant_tax) + (emission_fees) + (tax)
