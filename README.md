@@ -1,24 +1,23 @@
-# README
+# The Insurance Company Rails Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 1. Installation manual
 
-* Ruby version
+Follow these steps to setup the application.
 
-* System dependencies
+### 1.1 Software requirements
 
-* Configuration
+The following minimum setup is required:
 
-* Database creation
+* Ruby version: 2.5.5
+* Rails Version: 5.2.6
+* Database: Postgresql
 
-* Database initialization
+### 1.2 Setup
 
-* How to run the test suite
+Follow steps to run the application.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* bundle install
+* rails db:create
+* rails db:migrate
+* rails s

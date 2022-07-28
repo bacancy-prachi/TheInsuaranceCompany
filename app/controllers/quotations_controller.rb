@@ -52,14 +52,9 @@ class QuotationsController < ApplicationController
   end
 
   def calculate_premium
-    prime_avant_tax = (((@quotation.municiple_evaluation_of_property-(500000))/1000)*(1.17))+320
-    @quotation&.premium_calculation&.prime_avant_tax = prime_avant_tax
-    emission_fees = 20
-    @quotation&.premium_calculation&.emission_fees = emission_fees
-    tax = ((prime_avant_tax)*9)/100
-    @quotation&.premium_calculation&.tax = tax
-    @quotation_premium = prime_avant_tax + emission_fees + tax
-    @quotation.premium_calculation.save
+    premium_calculator = PremiumCalculator.new(@quotation)
+    @quotation_premium = premium_calculator.calculate
+    
     @quotation&.build_quotation_transaction unless @quotation&.quotation_transaction.present?
     @quotation&.build_property_legal_description unless @quotation&.property_legal_description.present?
     @quotation&.build_property_information unless @quotation&.property_information.present?
