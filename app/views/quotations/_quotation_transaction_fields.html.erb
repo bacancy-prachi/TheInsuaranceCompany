@@ -10,7 +10,7 @@
 </div>
 <div>
   <%= f.label :home_owner, style: "display: block" %>
-  <%= f.text_field :home_owner %>
+  <%= f.text_field :home_owner, value: @quotation.first_name + " " + @quotation.last_name  %>
 </div>
 <div>
   <%= f.label :second_home_owner, style: "display: block" %>
